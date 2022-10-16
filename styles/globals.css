@@ -6,21 +6,87 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
 }
+
+li {
+  list-style: none;
+}
+
+/* CUSTOM FONTS START */
+/*  ---- START ---- */
+
+@font-face {
+  font-family: Buda;
+  src: url("../assets/fonts/Buda/Buda-Light.ttf");
+}
+
+@font-face {
+  font-family: inspiration;
+  src: url("../assets/fonts/Inspiration/Inspiration-Regular.ttf");
+}
+
+/* CUSTOM FONTS */
+/* ---- END ---- */
+
+/* ---- START ---- */
+/* CUSTOM SCROLLBAR */
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 1px solid #171717;
+}
+
+/* CUSTOM SCROLLBAR */
+/* ----- END ----- */
+
+body {
+  background: #000000; /* fallback for old browsers */
+
+  cursor: none;
+  overflow-x: hidden;
+
+  --white: #fff;
+  --golden: #d2af26;
+}
+
+/* CUSTOM CURSOR */
+/* ---- START ---- */
+
+.cursor {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--white);
+  mix-blend-mode: exclusion;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  transform-origin: center;
+  transition-property: scale;
+  transition-duration: 200ms;
+}
+
+.cursor.hover {
+  scale: 2.5;
+}
+
+/* CUSTOM CURSOR */
+/* ---- END ---- */
