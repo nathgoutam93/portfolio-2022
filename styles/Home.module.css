@@ -1,4 +1,39 @@
-/* HOME SECTION */
+/* ---- HEADER ---- */
+/* ---- START ---- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  z-index: 10;
+}
+
+.header nav {
+  margin-left: auto;
+  margin-right: 10rem;
+  /* border: 1px solid black; */
+}
+
+.header nav ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.header nav ul li a {
+  padding: 2rem 0;
+  font-size: 1rem;
+  font-family: Buda, Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+/* ---- HEADER ---- */
+/* ---- END ---- */
+
+/* ---- HOME ---- */
 /* ---- START ---- */
 
 .home {
@@ -10,21 +45,8 @@
   position: relative;
 }
 
-.home .imgcard {
-  position: absolute;
-  top: 40%;
-  right: 20%;
-  opacity: 0.5;
-  opacity: 0;
-  scale: 2;
-  pointer-events: none;
-  transition-property: opacity;
-  transition-duration: 500ms;
-}
-
-.home .hero {
+.home h1 {
   width: 80vw;
-  color: var(--white);
   font-family: Buda, cursive;
   font-size: 4rem;
   font-weight: lighter;
@@ -32,47 +54,48 @@
   line-height: 5rem;
 }
 
-.home .name {
-  color: var(--golden);
+.home h1 .name {
+  color: var(--accent);
   font-size: 5rem;
   font-family: inspiration;
 }
 
+.home .about {
+  position: absolute;
+  top: 20%;
+  right: 10rem;
+  max-width: 20rem;
+  z-index: -1;
+}
+
+.home .about p {
+  margin-bottom: 0.25rem;
+  text-align: justify;
+  word-spacing: 1rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-family: Buda, Arial, Helvetica, sans-serif;
+  color: var(--accent);
+}
+
+.home .about .imgcard {
+  position: relative;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.home .about .imgcard .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  transition: width 500ms;
+}
+
 /* ---- HOME ---- */
 /* ---- END ---- */
-
-/* ---- CONTACT ---- */
-/* ---- START ---- */
-
-.contact {
-  width: 100%;
-  padding: 0 6rem;
-  color: var(--white);
-}
-
-.contact h2 {
-  margin: 0;
-  margin-bottom: 1rem;
-  font-size: 4rem;
-  font-family: Buda, Arial, Helvetica, sans-serif;
-}
-
-.contact a {
-  padding: 0;
-  font-size: 2rem;
-  font-family: Buda, Arial, Helvetica, sans-serif;
-  text-decoration: underline;
-}
-
-.contact .divider {
-  margin-top: 8rem;
-  width: 100%;
-  height: 0.05rem;
-  background-color: var(--white);
-}
-
-/* ---- CONTACT ---- */
-/* ---- END ----- */
 
 /* WORK SECTION */
 /* ---- START ---- */
@@ -82,10 +105,99 @@
   height: 100vh;
   padding: 4rem;
   display: flex;
+  /* background-color: var(--text); */
 }
 
 /* WORK SECTION */
 /*  --- END ---- */
+
+/* ---- CONTACT ---- */
+/* ---- START ---- */
+
+.contact {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-inline: 6rem;
+  padding-top: 6rem;
+  color: var(--text);
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact h2 {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 10rem;
+  font-weight: 200;
+  font-family: Buda, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+.contact h2 span {
+  display: block;
+}
+
+.contact h2 span.img {
+  display: inline-block;
+  margin-inline-start: 2rem;
+  width: 16rem;
+  height: 10rem;
+  rotate: -15deg;
+  transform-origin: center;
+  overflow: hidden;
+}
+
+span.img img {
+  object-fit: cover;
+}
+
+.contact h2 span.indent {
+  text-indent: 16rem;
+}
+
+.contact .link {
+  position: absolute;
+  display: flex;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+  font-size: 2rem;
+  color: var(--background);
+  background-color: var(--text);
+  justify-content: center;
+  align-items: center;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.contact .link:first-of-type {
+  top: 50%;
+  right: 20%;
+}
+
+.contact .link:last-of-type {
+  bottom: 20%;
+  left: 10%;
+}
+
+@keyframes pulse {
+  0% {
+    scale: 0.8;
+  }
+  50% {
+    scale: 1;
+  }
+  100% {
+    scale: 0.8;
+  }
+}
+
+/* ---- CONTACT ---- */
+/* ---- END ----- */
 
 /* FOOTER */
 /* ---- START ---- */
@@ -94,18 +206,35 @@
   padding: 2rem 6rem;
 }
 
+.footer .divider {
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 0.05rem;
+  background-color: var(--accent);
+}
+
 .footer ul {
   margin: 0;
   padding: 0;
   width: 100%;
   display: flex;
-  color: var(--white);
   gap: 2rem;
 }
 
 .footer ul li a {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: Buda, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  /* text-decoration: underline;
+  text-decoration-thickness: 0.25rem; */
+}
+
+.footer span {
+  display: block;
+  margin-top: 4rem;
+  font-size: 0.75rem;
+  font-family: Buda, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
 }
 
 /* FOOTER */

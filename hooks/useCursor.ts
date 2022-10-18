@@ -17,6 +17,10 @@ const useCursor = () => {
     y: 0,
   });
 
+  const scrollPrv = useRef<number>(0);
+
+  // listen for mouse movement
+  // re-position cursor on mouse move
   useEffect(() => {
     const handleMousePos = (event: MouseEvent) => {
       mousePos.current = {
@@ -31,9 +35,31 @@ const useCursor = () => {
       document.removeEventListener("mousemove", handleMousePos);
     };
   }, []);
-
+  
+  
+  // listen for scroll event
+  // re-position cursor on scroll 
   useEffect(() => {
-    const MOUSE_SENSITIVITY = 0.3;
+    const handleMousePos = () => {
+      if(cursorRef.current == null) return;
+      mousePos.current = {
+        x: mousePos.current.x,
+        y: mousePos.current.y + (window.scrollY - scrollPrv.current),
+      };
+      scrollPrv.current = window.scrollY;
+    };
+
+    document.addEventListener("scroll", handleMousePos);
+
+    return () => {
+      document.removeEventListener("scroll", handleMousePos);
+    };
+  }, []);
+
+  // animate cursor movement smoothly
+  // whenever cursor re-position happen
+  useEffect(() => {
+    const MOUSE_SENSITIVITY = 0.2;
     let requestFrame = 0;
 
     function animate() {
@@ -58,7 +84,7 @@ const useCursor = () => {
       requestFrame = requestAnimationFrame(animate);
     }
 
-    animate();
+    window.requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(requestFrame);
