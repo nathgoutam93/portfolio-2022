@@ -3,8 +3,12 @@ import { useEffect, useRef } from "react";
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
 }
+function clamp(num: number, min: number, max: number){
+  return Math.min(Math.max(num, min), max)
+} 
 
 const useCursor = () => {
+
   const cursorRef = useRef<HTMLDivElement>(null);
 
   const mousePos = useRef<{ x: number; y: number }>({
@@ -72,7 +76,7 @@ const useCursor = () => {
         lerp(cursorPos.current.y, mousePos.current.y, MOUSE_SENSITIVITY)
       );
 
-      cursorPos.current = { x, y };
+      cursorPos.current = { x: clamp(x,0,document.body.clientWidth), y };
 
       cursorRef.current.style.left = `${
         cursorPos.current.x - cursorRef.current.clientWidth / 2

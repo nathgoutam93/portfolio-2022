@@ -1,16 +1,18 @@
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import useCursor from "../hooks/useCursor";
 import { FaRegEnvelope, FaLinkedinIn } from "react-icons/fa";
-import MomentumScroll from "../components/momentumScroll";
 
-import styles from "../styles/Home.module.css";
 import profile_img from "../assets/images/goutam-crop.png";
-import connect_img from "../assets/images/connect.webp";
+import connect_img from "../assets/images/connect.jpg";
+import Arrow from "../assets/svgs/arrow-right";
+import styles from "../styles/Home.module.css";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const Home: NextPage = () => {
+  const matches = useMediaQuery("(min-width: 768px)");
   const cursorRef = useCursor();
   const imgOverlayRef = useRef<HTMLDivElement>(null);
 
@@ -32,6 +34,15 @@ const Home: NextPage = () => {
       imgOverlayRef.current.style.width = "0%";
     }, 500);
   }, []);
+
+  useEffect(() => {
+    if (matches) {
+      cursorRef.current?.classList.remove("hidden");
+    } else {
+      cursorRef.current?.classList.add("hidden");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [matches]);
 
   return (
     <>
@@ -124,16 +135,19 @@ const Home: NextPage = () => {
             </span>
             <span className={styles.indent}>touch</span>
           </h2>
-          <a
-            className={styles.link}
-            href="mailto:nathgoutam93@gmail.com"
-            rel="noreferrer"
-            target="_blank"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <FaRegEnvelope stroke="1" />
-          </a>
+          <span className={styles.mail}>
+            <Arrow />
+            <a
+              className={styles.link}
+              href="mailto:nathgoutam93@gmail.com"
+              rel="noreferrer"
+              target="_blank"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <FaRegEnvelope stroke="1" />
+            </a>
+          </span>
           <a
             className={styles.link}
             href="https://www.linkedin.com/in/nathgoutam93/"

@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 // Hook
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<{
-    width: undefined | number;
-    height: undefined | number
+    width: number;
+    height: number
   }>({
-    width: undefined,
-    height: undefined,
+    width: 0,
+    height: 0,
   });
   useEffect(() => {
     // Handler to call on window resize
