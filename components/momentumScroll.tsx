@@ -50,7 +50,7 @@ const MomentumScroll: React.FC<Props> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const SCROLL_LAG = 0.07;
+    const SCROLL_LAG = 0.03;
     let requestFrame = 0;
 
     function render() {

@@ -1,15 +1,16 @@
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import { MouseEventHandler, useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import useCursor from "../hooks/useCursor";
-import { FaRegEnvelope, FaLinkedinIn } from "react-icons/fa";
+import { FaRegEnvelope, FaLinkedinIn, FaArrowRight } from "react-icons/fa";
 
 import profile_img from "../assets/images/goutam-crop.png";
 import connect_img from "../assets/images/connect.jpg";
 import Arrow from "../assets/svgs/arrow-right";
 import styles from "../styles/Home.module.css";
 import useMediaQuery from "../hooks/useMediaQuery";
+// import MomentumScroll from "../components/momentumScroll";
 
 const Home: NextPage = () => {
   const matches = useMediaQuery("(min-width: 768px)");
@@ -47,12 +48,13 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>portfolio</title>
+        <title>Goutam nath — portfolio</title>
         <meta name="description" content="goutam nath's portfolio website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div ref={cursorRef} className="cursor"></div>
       <header className={styles.header}>
+        <span>/folio_2k22</span>
         <nav>
           <ul>
             <li>
@@ -96,14 +98,12 @@ const Home: NextPage = () => {
             >
               Goutam Nath
             </span>{" "}
-            is a creative developer,
-            <br />
-            hobbyist game maker and lover of <br />{" "}
+            is a creative developer, hobbyist game maker and lover of{" "}
             <span>space & time travel movies</span>.
           </h1>
           <div className={styles.about}>
             <p>
-              He is a freelance designer and developer, passionated about
+              freelance, full-stack development, UI/UX, passionate about
               creating memorable experiences.
             </p>
             <div className={styles.imgcard}>
@@ -118,7 +118,53 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-        <section id="work" className={styles.work}></section>
+        <section id="work" className={styles.work}>
+          <h2>recent work</h2>
+          <ul>
+            <li>
+              <a
+                href="https://blogbuddy.netlify.app"
+                rel="noreferrer"
+                target="_blank"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                BlogBuddy
+                <span>
+                  <FaArrowRight />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkpile-bffd7.web.app"
+                rel="noreferrer"
+                target="_blank"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Linkpile
+                <span>
+                  <FaArrowRight />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/nathgoutam93/personatube"
+                rel="noreferrer"
+                target="_blank"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Personatube
+                <span>
+                  <FaArrowRight />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
         <section id="contact" className={styles.contact}>
           <h2>
             <span>
@@ -145,10 +191,10 @@ const Home: NextPage = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <FaRegEnvelope stroke="1" />
+              <FaRegEnvelope />
             </a>
           </span>
-          <a
+          {/* <a
             className={styles.link}
             href="https://www.linkedin.com/in/nathgoutam93/"
             rel="noreferrer"
@@ -157,15 +203,15 @@ const Home: NextPage = () => {
             onMouseLeave={handleMouseLeave}
           >
             <FaLinkedinIn stroke="1" />
-          </a>
+          </a> */}
         </section>
       </main>
       <footer className={styles.footer}>
         <div className={styles.divider}></div>
         <ul>
-          {/* <li>
+          <li>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/nathgoutam93/"
               rel="noreferrer"
               target="_blank"
               onMouseEnter={handleMouseEnter}
@@ -173,7 +219,7 @@ const Home: NextPage = () => {
             >
               linkedin
             </a>
-          </li> */}
+          </li>
           <li>
             <a
               href="https://twitter.com/nathgoutam93"
@@ -197,7 +243,7 @@ const Home: NextPage = () => {
             </a>
           </li>
         </ul>
-        <span>© goutam nath. all rights reserved.</span>
+        <span>©2022 Goutam nath. all rights reserved.</span>
       </footer>
       {/* </MomentumScroll> */}
     </>
