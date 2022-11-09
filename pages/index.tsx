@@ -11,7 +11,6 @@ import connect_img from "../assets/images/connect.jpg";
 import Arrow from "../assets/svgs/arrow-right";
 import styles from "../styles/Home.module.css";
 import useMediaQuery from "../hooks/useMediaQuery";
-import MomentumScroll from "../components/momentumScroll";
 
 const Home: NextPage = () => {
   const matches = useMediaQuery("(min-width: 768px)");
@@ -102,113 +101,112 @@ const Home: NextPage = () => {
         </nav>
       </header>
       <div ref={cursorRef} className="cursor"></div>
-      <MomentumScroll>
-        <main className={styles.main}>
-          <section id="home" className={styles.home}>
-            <h1 className="hero">
-              <span
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className={styles.name}
-              >
-                Goutam Nath
-              </span>{" "}
-              is a creative developer, hobbyist game maker and lover of{" "}
-              <span>space & time travel movies</span>.
-            </h1>
-            <div className={styles.about}>
-              <p>
-                freelance, full-stack development, UI/UX, passionate about
-                creating memorable experiences.
-              </p>
-              <div ref={imgCardRef} className={styles.imgcard}>
-                <Image
-                  src={profile_img.src}
-                  alt="goutam's photograph"
-                  width={profile_img.width}
-                  height={profile_img.height}
-                  objectFit="cover"
-                />
-              </div>
+      <main className={styles.main}>
+        <section id="home" className={styles.home}>
+          <h1 className="hero">
+            <span
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={styles.name}
+            >
+              Goutam Nath
+            </span>{" "}
+            is a creative developer, hobbyist game maker and lover of{" "}
+            <span>space & time travel movies</span>.
+          </h1>
+          <div className={styles.about}>
+            <p>
+              freelance, full-stack development, UI/UX, passionate about
+              creating memorable experiences.
+            </p>
+            <div ref={imgCardRef} className={styles.imgcard}>
+              <Image
+                src={profile_img.src}
+                alt="goutam's photograph"
+                width={profile_img.width}
+                height={profile_img.height}
+                objectFit="cover"
+              />
             </div>
-          </section>
-          <section id="work" className={styles.work}>
-            <h2>recent work</h2>
-            <ul>
-              <li>
-                <a
-                  href="https://blogbuddy.netlify.app"
-                  rel="noreferrer"
-                  target="_blank"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  BlogBuddy
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://linkpile-bffd7.web.app"
-                  rel="noreferrer"
-                  target="_blank"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Linkpile
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/nathgoutam93/personatube"
-                  rel="noreferrer"
-                  target="_blank"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  Personatube
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </section>
-          <section id="contact" className={styles.contact}>
-            <h2>
-              <span>
-                get in
-                <span className={styles.img}>
-                  <Image
-                    src={connect_img.src}
-                    width={connect_img.width}
-                    height={connect_img.height}
-                    objectFit="cover"
-                    alt="connecting fingers"
-                  />
-                </span>
-              </span>
-              <span className={styles.indent}>touch</span>
-            </h2>
-            <span className={styles.mail}>
-              <Arrow />
+          </div>
+        </section>
+        <section id="work" className={styles.work}>
+          <h2>recent work</h2>
+          <ul>
+            <li>
               <a
-                className={styles.link}
-                href="mailto:nathgoutam93@gmail.com"
+                href="https://blogbuddy.netlify.app"
                 rel="noreferrer"
                 target="_blank"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <FaRegEnvelope />
+                BlogBuddy
+                <span>
+                  <FaArrowRight />
+                </span>
               </a>
+            </li>
+            <li>
+              <a
+                href="https://linkpile-bffd7.web.app"
+                rel="noreferrer"
+                target="_blank"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Linkpile
+                <span>
+                  <FaArrowRight />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/nathgoutam93/personatube"
+                rel="noreferrer"
+                target="_blank"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Personatube
+                <span>
+                  <FaArrowRight />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section id="contact" className={styles.contact}>
+          <h2>
+            <span>
+              get in
+              <span className={styles.img}>
+                <Image
+                  src={connect_img.src}
+                  width={connect_img.width}
+                  height={connect_img.height}
+                  objectFit="cover"
+                  alt="connecting fingers"
+                />
+              </span>
             </span>
-            {/* <a
+            <span className={styles.indent}>touch</span>
+          </h2>
+          <span className={styles.mail}>
+            <Arrow />
+            <a
+              className={styles.link}
+              href="mailto:nathgoutam93@gmail.com"
+              rel="noreferrer"
+              target="_blank"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <FaRegEnvelope />
+            </a>
+          </span>
+          {/* <a
             className={styles.link}
             href="https://www.linkedin.com/in/nathgoutam93/"
             rel="noreferrer"
@@ -218,48 +216,47 @@ const Home: NextPage = () => {
           >
             <FaLinkedinIn stroke="1" />
           </a> */}
-          </section>
-        </main>
-        <footer className={styles.footer}>
-          <div className={styles.divider}></div>
-          <ul>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/nathgoutam93/"
-                rel="noreferrer"
-                target="_blank"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                linkedin
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/nathgoutam93"
-                rel="noreferrer"
-                target="_blank"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                twitter
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/nathgoutam93"
-                rel="noreferrer"
-                target="_blank"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                github
-              </a>
-            </li>
-          </ul>
-          <span>©2022 Goutam nath. all rights reserved.</span>
-        </footer>
-      </MomentumScroll>
+        </section>
+      </main>
+      <footer className={styles.footer}>
+        <div className={styles.divider}></div>
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/nathgoutam93/"
+              rel="noreferrer"
+              target="_blank"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              linkedin
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/nathgoutam93"
+              rel="noreferrer"
+              target="_blank"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              twitter
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/nathgoutam93"
+              rel="noreferrer"
+              target="_blank"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              github
+            </a>
+          </li>
+        </ul>
+        <span>©2022 Goutam nath. all rights reserved.</span>
+      </footer>
     </>
   );
 };
