@@ -7,6 +7,8 @@ function clamp(num: number, min: number, max: number){
   return Math.min(Math.max(num, min), max)
 } 
 
+const MOUSE_SENSITIVITY = 0.2;
+
 const useCursor = () => {
 
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -63,7 +65,6 @@ const useCursor = () => {
   // animate cursor movement smoothly
   // whenever cursor re-position happen
   useEffect(() => {
-    const MOUSE_SENSITIVITY = 0.2;
     let requestFrame = 0;
 
     function animate() {
